@@ -1,0 +1,797 @@
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+/* apply a natural box layout model to all elements */
+* { 
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box; 
+}
+
+/* test 
+$red: red;
+
+h1 {color:$red;}
+*/
+
+@import "css/normalize.css";
+@import "font/stylesheet.css";
+
+// Setting the variables:
+$reddish: #e76343;
+$mycolor:#9bc800;
+$darkgrey: #333333;
+$lightgrey:#666565;
+$lightshadow:#515151;
+$darkshadow:#212121;
+// Setting functional variables:
+$highlight: $mycolor;
+$headcolor: $darkgrey;
+$pcolor: $lightgrey;
+$headlineheight: 1.4rem;
+
+$breakpoint1: 40em;
+
+html {
+    font-size: 100%;
+    text-rendering: optimizeLegibility; 
+  }
+
+/* --------------------------------------------------*
+/ Base Styles
+/ ---------------------------------------------------*/
+body {
+font: normal .75rem / 1.666666667 open Sans, Lucida Sans, Lucida Grande, Lucida Sans Unicode, sans-serif;
+color: #787878;
+margin: 0;
+//background: url(http://rodrigob.com/themes/fffolio/images/intro_bg2.jpg) fixed;
+background-image: url(../images/galaxygreen2.jpg);
+
+background-color:#000;
+background-position-x: initial;
+background-position-y: initial;
+background-size: initial;
+background-repeat-x: initial;
+background-repeat-y: initial;
+background-attachment: fixed;
+background-origin: initial;
+background-clip: initial;
+background-color: initial;
+background-position: center;
+}
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'LeagueGothicRegular', open sans, Lucida Sans, Lucida Grande, Lucida Sans Unicode, sans-serif;
+    color: $headcolor;
+    text-transform: uppercase;
+    font-weight: normal;
+  }
+
+  a {
+    color: #46a4d5;
+    text-decoration: none;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -ms-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+  }
+  a:hover {
+    color: $highlight;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+
+
+/* --------------------------------------------------*
+/ Layout
+/ ---------------------------------------------------*/
+
+/*
+/head & main nav ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+nav {
+border-top:3px solid $highlight;	
+text-align: center;
+background-color: rgba(0,0,0,.25);
+padding-bottom:1em;
+z-index: 1000;
+width: 100%;
+
+
+	ul {
+	text-align: center;
+	padding-top: 17px;
+	margin-top: 30px;
+	margin-left:-1.65rem;
+	list-style: none outside;
+	}
+	li {
+	text-align: center;
+	display: inline-block;
+	margin-top: -30px;
+	}	
+	a {
+	font-size: 1rem;
+	font-weight: 400;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 0 15px 0 15px;
+	text-shadow: 1px 1px 1px #515151;
+	}
+	a:hover {
+	color: $highlight;
+	text-shadow: 1px 1px 1px #212121;
+	}
+
+}
+
+span.logo {
+	display: inline-block;
+	background: url(http://rodrigob.com/themes/fffolio/images/logo.png) no-repeat 0 0;
+	width: 83px;
+	height: 83px;
+	margin-top: -10px;
+	vertical-align: middle;
+
+	position: relative;
+	}
+span.logotxt {
+	font-family: 'Marck Script', cursive;
+	color: $highlight;
+	font-weight: normal;
+	font-size: 42px;
+	text-transform: uppercase;
+	text-shadow: none;
+	filter: none;
+	position: relative;
+	padding-top: 10px;
+	display: inline-block;
+	}
+
+
+
+
+
+
+
+
+
+
+header[role='banner']{
+	color:white;
+	margin-bottom:6em;
+	text-align: center;
+
+	p{
+		text-transform: uppercase;
+		font-size: 44px;
+		font-size: 2.6rem;
+		font-weight: 600;
+		text-shadow: 1px 1px 2px #515151;
+		filter: dropshadow(color=#515151, offx=1, offy=1);
+		line-height: $headlineheight;
+		//margin:0;
+		padding:0;
+
+	}
+	h1{
+		//vertical-align: baseline;
+		color:white;
+		position: relative;
+		top: .76rem;
+		//background-color:red;
+		text-transform: uppercase;
+		text-shadow: 1px 1px 2px #515151;
+		filter: dropshadow(color=#515151, offx=1, offy=1);
+		font-size:6.8rem;
+		font-weight: 400;
+		//margin: 0, 0, -90px, 0;
+		line-height: 1rem;
+		//line-height: $headlineheight + .25rem;
+	}
+	.fancy{
+		font-family: 'Marck Script', cursive;
+		font-size: 3.9rem;
+		font-weight: normal;
+		text-shadow: 1px 1px 2px #515151;
+		display: inline-block;
+		text-transform: none;
+		line-height: $headlineheight - 1.2rem;
+		margin-top:60px;
+		.lines{
+			border-bottom: 1px dotted #bbb;
+			display: inline-block;
+			width: 160px;
+			height: 2px;
+			margin: 0 15px 0 15px;
+			-webkit-box-shadow: 1px 1px 1px 1px #00000;
+			box-shadow: 1px 1px 1px 1px #00000;
+		}
+	@media only screen and (max-width: $breakpoint1) {
+	.fancy, .lines {
+		display:none;
+   		visibility: hidden;
+   		text-indent:-3000px;
+   	}
+}
+	
+
+	}
+
+}	
+
+@media only screen and (max-width: $breakpoint1) {
+	header[role='banner'] { 
+		//color:green;
+			margin-bottom:1em;
+		   .fancy {
+		   	display:none;
+   			visibility: hidden;
+   		}
+   		p{
+   			line-height: 1.25em;
+   			font-size:2rem;
+   		}
+   		nav .logo{
+   			display: none;
+   		}
+   		nav li{
+   			margin-top: -1.2em;
+   		}
+   		nav ul{
+   			padding-top: 1.2em;
+			margin-top: .65em;
+   		}
+   		nav a {
+   			padding: 0 8px 0 8px;
+   		}
+
+   		h1{
+   			font-size: 5rem;
+   			line-height: .55rem;
+   		}
+
+	}
+    html {font-size: 80%;}
+
+}
+
+
+/*
+/sections ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+.jagged{/*top part*/
+	//background: url(http://rodrigob.com/themes/fffolio/images/jagged_bottom.png) repeat-x;
+	background: url(../images/g.png) repeat-x;
+	//background-position: center;
+	width: 100%;
+	height: 29px;
+	position: relative;
+	z-index: 20;
+	margin-top: 0px;
+	margin-bottom: -1px;
+	//opacity:.8;
+	/*background-color:$highlight;*/
+
+@media only screen and (max-width: $breakpoint1) {
+	//.jagged{margin-top: -1px;}
+
+	}
+
+}
+.jagged_bottom {
+	background: url(../images/gb.png) repeat-x;
+	//background-position: center;
+	width: 100%;
+	height: 29px;
+	position: relative;
+	z-index: 20;
+	//opacity:.8;
+	/*background-color:$highlight;*/
+}
+
+.seperator{
+	height:60px;
+}
+.whitewrap{
+	background-color: rgba(255,255,255,1);
+	margin-top:0px;
+	margin-bottom:0px;
+	//background:white;
+	width: 100%;
+	*[role='main']{
+
+	}
+}
+section{
+	margin:0 auto;
+	max-width:960px;
+	padding: 50px 10px;
+
+	h1{
+		font-size: 3.5rem;
+		//font-weight: 700;
+		border-bottom: 2px dotted $highlight;
+		margin:0;
+		padding:0px 0px 25px 0px;
+		line-height: 1rem;
+		display: inline-block;
+		width: 100%;
+	}
+	h2{
+		color:$highlight;
+		font-size:1.4rem;
+	}
+
+	/*.h1:after{
+		content: "";
+		width: 1000px;
+		height:5px;
+		border-bottom: 2px solid $highlight;
+
+
+	}
+
+	followingline{
+		border-bottom: 2px solid $highlight;
+		width:100%;
+		max-width: 940px;
+
+		display: inline-block;
+		height: 2px;
+	}*/
+	p,h3{
+		font-size: .95rem;
+	}
+	ul{
+		list-style: none;
+		margin:0px;
+		padding:0px;
+		width: 100%;
+
+	}
+	li{
+		display: inline-block;
+		padding:0px;
+		margin:0px;
+		img{
+			-webkit-transition-duration: 0.3s;
+			-moz-transition-duration: 0.3s;
+			-o-transition-duration: 0.3s;
+			transition-duration: 0.3s;
+			-webkit-transition-property: -webkit-box-shadow;
+			-moz-transition-property: -moz-box-shadow;
+			-o-transition-property: -o-box-shadow;
+			transition-property: box-shadow;
+		}
+
+	}
+
+}
+
+.mainportfolio{
+	text-align:center;
+	li{
+		margin:20px 0px;
+	}
+	h3,p{
+		border-bottom: 1px dotted $highlight;
+		line-height: 2.5rem;
+		margin:0px;
+		padding:0px;
+	}
+
+
+	h3{
+		//text-transform: none;
+		font-family: open sans, arial, helvetica, sans-serif;
+		color: $highlight !important;
+		font-weight: 400;
+		
+	}
+
+	}
+
+.sliderwrap{
+   //min-height:168px;
+	border-top: 1px dotted $lightgrey;
+	border-bottom: 1px dotted $lightgrey;
+	padding-top: 10px;
+	padding-bottom:10px;
+}
+.miniportfolio{
+	/*background-color:rgb(227, 227, 227);*/
+	//height:148px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    margin-top:3px;
+	li{
+		padding:0px;
+		margin:0px;
+		position: relative;
+		vertical-align: middle;	
+		text-align: center;
+
+		a,img{
+			border:0px;
+			margin:0px;
+			padding:0px;
+		}
+	}
+
+}	
+
+@media only screen and (max-width: $breakpoint1) {
+	.miniportfolio{
+
+	}
+
+}
+/*
+/about ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+*[role='about']{
+	h2{
+		border-bottom: 1px dotted $lightgrey;
+		//text-transform: none;
+		color: $lightgrey;
+		//font-weight: 600;
+		font-size: 1.2rem;
+	}
+	h3{
+		color: $lightgrey;
+		//font-weight: 400;
+		font-family: open sans, arial, sans-serif;
+		font-size: .7rem;	
+		line-height: .7rem;
+		margin-top: 3px;
+	}
+
+}
+
+.social {
+	float:right;
+	//background-image: url(http://rodrigob.com/themes/fffolio/images/dotted_bg_orange.png);
+	background-color: $highlight;
+	padding: 15px 15px 17px 30px;
+	color: #fff;
+	width: 20%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 40px;
+	ul{
+		list-style-type: none;
+
+	}
+	li{
+		//display: block;
+		vertical-align: middle;
+	}
+	a{
+		color: white;
+	}
+	a:hover{
+		color: $darkgrey;
+	}
+	.twitter:before
+	{
+		content:url(http://rodrigob.com/themes/fffolio/images/icn_twitter_orange.png);
+		position: relative;
+		top:5px;
+		padding-right:10px;
+	}
+	.zerply:before
+	{
+		content:url(http://rodrigob.com/themes/fffolio/images/icn_zerply_orange.png);
+		position: relative;
+		top:5px;
+		padding-right:10px;
+	}
+	.facebook:before{
+		content:url(http://rodrigob.com/themes/fffolio/images/icn_facebook_orange.png);
+		position: relative;
+		top:5px;
+		padding-right:10px;
+	}
+	.linkedin:before{
+		content:url(http://rodrigob.com/themes/fffolio/images/icn_linkedin_orange.png);
+		position: relative;
+		top:5px;
+		padding-right:10px;
+	}
+	.pinterest:before{
+		content:url(http://rodrigob.com/themes/fffolio/images/icn_pinterest_orange.png);
+		position: relative;
+		top:5px;
+		padding-right:10px;
+	}
+	.dribbble:before{
+		content:url(http://rodrigob.com/themes/fffolio/images/icn_dribbble_orange.png);
+		position: relative;
+		top:5px;
+		padding-right:10px;
+	}
+	.gplus:before{
+		content:url(http://rodrigob.com/themes/fffolio/images/icn_gplus_orange.png);
+		position: relative;
+		top:5px;
+		padding-right:10px;
+	}
+
+
+}
+
+
+@media only screen and (max-width: $breakpoint1) {
+	.social{
+		float:left;
+		//background-color:blue;
+		display:inline;
+		font-size: 1px;
+		color:$highlight;
+		width: 99%;
+		margin-left:0px;
+		padding: 5px 0px 15px 0px;
+		text-align: center;
+		
+		a{color:$highlight;
+
+		//text-indent:-40px;
+			//margin: 0px -60px 0px 0px;
+			//padding-right:3%;
+			//width:200px;
+			//overflow:hidden;
+			//height:30px;
+			//width:30px;
+			//position:absolute;
+			text-indent: 100%;
+			//white-space: nowrap;
+			//overflow: hidden;
+			//font-size:0px;
+			//display: inline-block;
+
+		}
+		a:hover{color:$highlight;}
+	}
+}	
+
+
+.skill {
+	width: 100%;
+	max-width:940px;
+	height: 22px;
+	background: #ebebeb;
+}
+
+.javascript {
+	width: 20%;
+	height: 22px;
+	background: $highlight;
+	opacity: 0.6;
+}
+.wordpress{
+	width: 22%;
+	height: 22px;
+	background: $highlight;
+	opacity: 0.6;
+}
+.photoshop {
+	width: 95%;
+	height: 22px;
+	background: $highlight;
+	opacity: 0.6;
+}
+.html {
+	width: 60%;
+	height: 22px;
+	background: $highlight;
+	opacity: 0.6;
+}
+
+/*
+/contact ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+.colorwrap{
+	margin-top: -1px;
+	margin-bottom:0px;
+	min-height:500px;
+	background: $highlight;
+	//overflow: auto;
+	width: 100%;
+}
+
+.colorjagged{/*top part*/
+	background: url(../images/gg.png) repeat-x;
+	width: 100%;
+	height: 24px;
+	position: relative;
+	z-index: 0;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	/*background-color:$highlight;*/
+}
+.colorjagged_bottom {
+	background: url(../images/ggb.png) repeat-x;
+	width: 100%;
+	height: 24px;
+	position: relative;
+	z-index: 0;
+	//background-color:rgba(0,0,0,.25);
+}
+
+
+*[role='contact']{
+	//min-height:45em;	
+	margin-bottom:0px;
+	z-index: 1000;
+	//overflow: auto;
+	h1,h2,h3,h4,p,label{
+		color:white;
+	}
+
+	h1{
+		border-bottom: 2px dotted #fff;
+	}
+
+	.mapinfo{
+		//overflow:auto;
+		float: right;
+		//display: inline;
+		width:48%;
+		.info{
+			width:45%;
+			float: left;
+			//margin-right: 1em;
+			//display: inline;
+			p{
+				margin:0;
+				margin-bottom: -2px;
+
+				line-height: 1.5rem;
+				img{
+					margin-right:10px;
+				}
+			}
+		}
+
+	}
+
+	.map {
+		border: 5px solid #d1d1d1;
+		text-align: right;
+		margin-top: 43px;
+		width: 100%;
+		height:200px;
+		}
+	.contact_form{
+		//overflow:auto;
+		float:left;
+		//display: inline;
+		width:48%;
+		color:#000;
+		/*background-color:green; */
+		p{
+			font-size: 13px;
+			text-transform: uppercase;
+			margin-bottom: 2px;
+		}
+
+		input,textarea{
+			background:  url(http://subtlepatterns.com/patterns/grid.png) repeat;
+			width: 100%;
+			height: 30px;
+			margin-bottom: 10px;
+			padding-left: 4px;
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 400;
+			font-size: 14px;
+		}
+		textarea {
+			height:99px;
+		}
+		.text{
+			border: 0;
+			padding: 6px 4px;
+			outline: none;
+			font: 13px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			color: #000;
+			margin: 0;
+			//width: 99%;
+			max-width: 100%;
+			display: block;
+		}
+		.submit-button {
+			background: #fff;
+			background-image: url(http://subtlepatterns.com/patterns/grid.png) repeat;
+			color: $highlight;
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 400;
+			text-transform: uppercase;
+			font-style: normal;
+			font-size: 12px;
+			width: 60px;
+			margin-top: 5px;
+			padding: 1px;
+			height: 25px;
+			text-align: center;
+			border: 0;
+			}
+	}
+}
+
+
+@media only screen and (max-width: $breakpoint1) {
+	.contact_form{
+		float:none;
+		//background-color:green;
+		display: block;
+		//position:relative;
+		width:90%;
+		//top: 600px;
+	}
+	.mapinfo{
+		//position:relative;
+		//top:500px;
+		float:none;
+	//	background-color:blue;
+		display:block;
+		width:100%;
+		//img{display:none;}
+
+	}
+	.info{
+		width: 100%;
+		float: none;
+		display: inline;
+		margin-right: 3rem;
+		margin-top:1rem;
+
+		}
+}
+
+
+
+/*
+/footer ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+footer{
+	padding-top:20px;
+	height:100px;
+	margin:0 auto;
+	text-align:center;
+	p{color:#ffffff;
+		display: inline-block;}
+}
